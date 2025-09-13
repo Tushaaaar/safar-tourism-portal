@@ -20,14 +20,14 @@ const AppState = {
 // Enhanced service data
 const ServiceData = {
     safarIds: [
-        {id: "SAFAR001", name: "John Smith", zone: "Delhi Central", status: "active", linkedGuide: "GUIDE001", location: "Red Fort Area"},
-        {id: "SAFAR002", name: "Emma Wilson", zone: "Delhi Central", status: "active", linkedGuide: "GUIDE002", location: "India Gate Area"},
-        {id: "SAFAR003", name: "Chen Wei", zone: "Mumbai South", status: "inactive", linkedGuide: null, location: "Gateway of India"}
+        {id: "SAFAR001", name: "Vaibhav Shakya", zone: "Sitapura Jaipur", status: "active", linkedGuide: "GUIDE001", location: "JECRC Foundation"},
+        {id: "SAFAR002", name: "Himanshu bGaur", zone: "Sitapura Jaipur", status: "active", linkedGuide: "GUIDE002", location: "JECRC Foundation"},
+        {id: "SAFAR003", name: "Mohit Sharma", zone: "Sitapura Jaipur", status: "inactive", linkedGuide: null, location: "JECRC Foundation"}
     ],
     guideIds: [
-        {id: "GUIDE001", name: "Raj Kumar", zone: "Delhi Central", verified: true, rating: 4.8, services: ["Hotel", "Transport", "Local Guide"]},
-        {id: "GUIDE002", name: "Priya Sharma", zone: "Delhi Central", verified: true, rating: 4.9, services: ["Cab Service", "Local Guide"]},
-        {id: "GUIDE003", name: "Ahmed Ali", zone: "Mumbai South", verified: true, rating: 4.7, services: ["Auto Service", "Hotel Booking"]}
+        {id: "GUIDE001", name: "Naveen", zone: "Sitapura Jaipur", verified: true, rating: 4.8, services: ["Hotel", "Transport", "Local Guide"]},
+        {id: "GUIDE002", name: "Aayushi Giri", zone: "Sitapura Jaipur", verified: true, rating: 4.9, services: ["Cab Service", "Local Guide"]},
+        {id: "GUIDE003", name: "Tushar", zone: "Jagatpura Jaipur", verified: true, rating: 4.7, services: ["Auto Service", "Hotel Booking"]}
     ],
     messageTemplates: [
         "Weather Alert: Heavy rain expected in your area. Please stay safe.",
