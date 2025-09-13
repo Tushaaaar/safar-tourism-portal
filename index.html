@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAFAR - India Tourism Portal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Login Page -->
+    <div id="loginPage" class="page active">
+        <div class="header">
+            <div class="gov-header">
+                <div class="emblem">🇮🇳</div>
+                <div class="header-text">
+                    <h1>भारत सरकार | Government of India</h1>
+                    <h2>पर्यटन मंत्रालय | Ministry of Tourism</h2>
+                </div>
+            </div>
+            <div class="main-title">
+                <h1>SAFAR Portal</h1>
+                <p>Secure Authentication for Tourism Services</p>
+            </div>
+        </div>
+
+        <div class="services-grid">
+            <div class="service-tile" data-service="safarguard">
+                <div class="tile-content">
+                    <div class="service-icon">🛡️</div>
+                    <h3>SAFARGUARD</h3>
+                    <h4>सफ़रगार्ड</h4>
+                    <p>Tourist Safety and Emergency Services</p>
+                    <div class="features">
+                        <span>Emergency Response</span>
+                        <span>Tourist Safety</span>
+                        <span>24/7 Monitoring</span>
+                        <span>Quick Assistance</span>
+                    </div>
+                    <div class="tile-actions">
+                        <button class="btn btn--primary login-btn" data-service="safarguard">Secure Login</button>
+                        <button class="btn btn--secondary qr-btn">Scan QR</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="service-tile" data-service="safarguide">
+                <div class="tile-content">
+                    <div class="service-icon">🗺️</div>
+                    <h3>SAFARGUIDE</h3>
+                    <h4>सफ़रगाइड</h4>
+                    <p>Tourist Guide and Service Provider Platform</p>
+                    <div class="features">
+                        <span>Certified Guides</span>
+                        <span>Hotel Services</span>
+                        <span>Transport Coordination</span>
+                        <span>Tourist Information Access</span>
+                    </div>
+                    <div class="tile-actions">
+                        <button class="btn btn--primary login-btn" data-service="safarguide">Secure Login</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="service-tile" data-service="safarcentral">
+                <div class="tile-content">
+                    <div class="service-icon">🚨</div>
+                    <h3>SAFARCENTRAL</h3>
+                    <h4>सफ़रसेंट्रल</h4>
+                    <p>Zone Management and Emergency Coordination</p>
+                    <div class="features">
+                        <span>Zone Management</span>
+                        <span>User Tracking</span>
+                        <span>Alert System</span>
+                        <span>Emergency Coordination</span>
+                    </div>
+                    <div class="tile-actions">
+                        <button class="btn btn--primary login-btn" data-service="safarcentral">Secure Login</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="service-tile" data-service="safarconnect">
+                <div class="tile-content">
+                    <div class="service-icon">🔗</div>
+                    <h3>SAFARCONNECT</h3>
+                    <h4>सफ़रकनेक्ट</h4>
+                    <p>Tourist Registration and ID Management</p>
+                    <div class="features">
+                        <span>SAFAR ID Generation</span>
+                        <span>QR Code Creation</span>
+                        <span>Document Verification</span>
+                        <span>System Integration</span>
+                    </div>
+                    <div class="tile-actions">
+                        <button class="btn btn--primary login-btn" data-service="safarconnect">Secure Login</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">Login</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="username" id="usernameLabel" class="form-label">Username</label>
+                        <input type="text" id="username" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password" id="passwordLabel" class="form-label">Password</label>
+                        <input type="password" id="password" class="form-control" required>
+                    </div>
+                    <button type="submit" class="btn btn--primary btn--full-width">Login</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- SAFARGUARD Dashboard -->
+    <div id="safarguardDashboard" class="page">
+        <div class="dashboard-header">
+            <h1>🛡️ SAFARGUARD Dashboard</h1>
+            <div class="user-info">
+                <span>SafarID: <strong>Tushar</strong></span>
+                <button class="btn btn--secondary logout-btn">Logout</button>
+            </div>
+        </div>
+
+        <div class="dashboard-grid">
+            <!-- Panic Button Section -->
+            <div class="dashboard-card emergency-card">
+                <h3>🚨 Emergency SOS</h3>
+                <div class="panic-section">
+                    <button id="panicButton" class="panic-btn">
+                        <span class="panic-icon">🆘</span>
+                        <span class="panic-text">EMERGENCY</span>
+                        <span class="panic-subtext">Hold for 3 seconds</span>
+                    </button>
+                    <div class="emergency-status">
+                        <span class="status status--success">✓ Connected to SAFARCENTRAL</span>
+                        <p>Zone: Delhi Central | Officer: Available</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Location & Geo-fencing -->
+            <div class="dashboard-card location-card">
+                <h3>📍 Location & Safety Zones</h3>
+                <div class="location-info">
+                    <div class="current-location">
+                        <strong>Current Location:</strong>
+                        <p>International Airport, Pratap Nagar Jaipur</p>
+                        <span class="status status--success">Safe Zone</span>
+                        <p><small>Guide: GUIDE001 (Naveen) - Nearby</small></p>
+                    </div>
+                    <div class="zone-alerts">
+                        <div class="alert-item">
+                            <span class="alert-icon">🔴</span>
+                            <span>High Crime Area - Downtown (2.5km away)</span>
+                        </div>
+                        <div class="alert-item">
+                            <span class="alert-icon">🟠</span>
+                            <span>Flood Warning - Yamuna River Area (3km away)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Transport Safety -->
+            <div class="dashboard-card cab-card">
+                <h3>🚕 Transport Safety & Approval</h3>
+                <div class="cab-section">
+                    <div class="transport-status">
+                        <p><strong>Current Request:</strong> Auto to High Street</p>
+                        <p><strong>Driver:</strong> Suresh Yadav (Auto Rickshaw)</p>
+                        <span class="status status--warning">⏳ Awaiting SAFARGUARD Approval</span>
+                    </div>
+                    <div class="transport-actions">
+                        <button class="btn btn--primary" id="approveRideBtn">✓ Approve Ride</button>
+                        <button class="btn btn--outline" id="generateOtpBtn">Generate Safety OTP</button>
+                    </div>
+                    <div id="otpDisplay" class="otp-display hidden">
+                        <p>Share with Driver:</p>
+                        <div class="otp-code">123456</div>
+                        <p>SafarID: TUSHAR001</p>
+                        <p>Valid for: 30 minutes</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Journey Information -->
+            <div class="dashboard-card journey-card">
+                <h3>🗺️ Journey Progress</h3>
+                <div class="journey-info">
+                    <div class="journey-detail">
+                        <strong>Destination:</strong> International Airport, Jaipur
+                    </div>
+                    <div class="journey-detail">
+                        <strong>Guide:</strong> Naveen (GUIDE001)
+                    </div>
+                    <div class="journey-detail">
+                        <strong>Progress:</strong> 65% Complete
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 65%"></div>
+                    </div>
+                    <div class="journey-detail">
+                        <strong>ETA:</strong> 10:30 AM
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SAFARGUIDE Dashboard -->
+    <div id="safarguideDashboard" class="page">
+        <div class="dashboard-header">
+            <h1>🗺️ SAFARGUIDE Dashboard</h1>
+            <div class="user-info">
+                <span>GuideID: <strong>Tushar</strong> 
+                <span class="status status--success">🔗 Blockchain Verified</span></span>
+                <button class="btn btn--secondary logout-btn">Logout</button>
+            </div>
+        </div>
+
+        <div class="dashboard-grid">
+            <!-- Guide Identity System -->
+            <div class="dashboard-card identity-card">
+                <h3>🆔 Guide Identity System</h3>
+                <div class="identity-info">
+                    <div class="blockchain-status">
+                        <div class="blockchain-badge">
+                            <span class="blockchain-icon">🔗</span>
+                            <div>
+                                <p><strong>GuideID:</strong> GUIDE001</p>
+                                <p><strong>Blockchain Status:</strong> <span class="status status--success">Verified</span></p>
+                                <p><strong>Gov ID:</strong> Aadhaar ****-5678 ✓</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cert-info">
+                        <p><strong>Zone:</strong> Delhi Central</p>
+                        <p><strong>Rating:</strong> ⭐ 4.8/5.0</p>
+                        <p><strong>Tours Completed:</strong> 127</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tourist Information Access -->
+            <div class="dashboard-card tourist-lookup">
+                <h3>👤 Tourist Information Access</h3>
+                <div class="lookup-section">
+                    <div class="form-group">
+                        <label class="form-label">Enter SafarID (No Documents Required)</label>
+                        <input type="text" id="safarIdLookup" class="form-control" placeholder="e.g., SAFAR001">
+                        <button class="btn btn--primary" id="lookupTourist">Access Information</button>
+                    </div>
+                    <div id="touristInfo" class="tourist-details hidden">
+                        <div class="tourist-profile">
+                            <h4>Tourist Profile</h4>
+                            <p><strong>Name:</strong> <span id="touristName">-</span></p>
+                            <p><strong>Location:</strong> <span id="touristLocation">-</span></p>
+                            <p><strong>Status:</strong> <span id="touristStatus">-</span></p>
+                            <p><strong>Preferences:</strong> <span id="touristPrefs">Cultural sites, Photography</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Multi-Service Integration -->
+            <div class="dashboard-card services-hub">
+                <h3>🏨 Service Provider Network</h3>
+                <div class="services-grid">
+                    <div class="service-category">
+                        <h4>🏨 Hotels</h4>
+                        <div class="service-list">
+                            <div class="service-item">
+                                <span>Taj Delhi</span>
+                                <span class="status status--success">Available</span>
+                                <button class="btn btn--sm btn--primary">Book</button>
+                            </div>
+                            <div class="service-item">
+                                <span>Hotel Ashok</span>
+                                <span class="status status--success">Available</span>
+                                <button class="btn btn--sm btn--primary">Book</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="service-category">
+                        <h4>🚗 Transport</h4>
+                        <div class="service-list">
+                            <div class="service-item">
+                                <span>Cab - Ramesh Kumar</span>
+                                <span class="status status--success">Available</span>
+                                <button class="btn btn--sm btn--primary">Assign</button>
+                            </div>
+                            <div class="service-item">
+                                <span>Auto - Suresh Yadav</span>
+                                <span class="status status--warning">Busy</span>
+                                <button class="btn btn--sm btn--outline" disabled>Unavailable</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Driver Coordination -->
+            <div class="dashboard-card driver-coord">
+                <h3>🚕 Driver Coordination System</h3>
+                <div class="coord-section">
+                    <div class="active-requests">
+                        <h4>Active Transport Requests</h4>
+                        <div class="request-item">
+                            <div class="request-info">
+                                <p><strong>SafarID:</strong> SAFAR001 (Vaibhav Shakya)</p>
+                                <p><strong>Destination:</strong> India Gate</p>
+                                <p><strong>Driver:</strong> Suresh Yadav (Auto)</p>
+                                <p><strong>Status:</strong> <span class="status status--warning">Awaiting Approval</span></p>
+                            </div>
+                            <div class="request-actions">
+                                <button class="btn btn--primary btn--sm" id="requestApproval">Request SAFARGUARD Approval</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="destination-entry">
+                        <h4>New Trip Request</h4>
+                        <div class="form-group">
+                            <label class="form-label">SafarID</label>
+                            <input type="text" class="form-control" placeholder="Enter SafarID">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Destination</label>
+                            <input type="text" class="form-control" placeholder="Enter destination">
+                        </div>
+                        <button class="btn btn--primary">Submit for Approval</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SAFARCENTRAL Dashboard -->
+    <div id="safarcentralDashboard" class="page">
+        <div class="dashboard-header">
+            <h1>🚨 SAFARCENTRAL Dashboard</h1>
+            <div class="user-info">
+                <span>Officer: <strong>Tushar</strong> | Zone: <strong>Sitapura Jaipur</strong></span>
+                <button class="btn btn--secondary logout-btn">Logout</button>
+            </div>
+        </div>
+
+        <div class="dashboard-grid">
+            <!-- Zone Management -->
+            <div class="dashboard-card zone-management">
+                <h3>🏛️ Zone Management Control</h3>
+                <div class="zone-info">
+                    <div class="central-id-panel">
+                        <div class="blockchain-badge">
+                            <span class="blockchain-icon">🔗</span>
+                            <div>
+                                <p><strong>CentralID:</strong> CENT001</p>
+                                <p><strong>Blockchain Status:</strong> <span class="status status--success">Verified</span></p>
+                                <p><strong>Coverage:</strong> 15 km radius</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="zone-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">15</span>
+                            <span class="stat-label">Active Users</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">8</span>
+                            <span class="stat-label">Guide Connections</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">2</span>
+                            <span class="stat-label">Emergency Alerts</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SafarID Tracking Panel -->
+            <div class="dashboard-card tracking-panel">
+                <h3>👤 SafarID Tracking Panel</h3>
+                <div class="tracking-list">
+                    <div class="tracked-user">
+                        <div class="user-info-panel">
+                            <span class="user-id">SAFAR001 - Vaibhav Shakya</span>
+                            <span class="user-location">JECRC Foundation</span>
+                            <span class="status status--success">Active</span>
+                        </div>
+                        <div class="user-guide">Guide: GUIDE001 (Naveen)</div>
+                    </div>
+                    <div class="tracked-user">
+                        <div class="user-info-panel">
+                            <span class="user-id">SAFAR002 - Himanshu Gaur</span>
+                            <span class="user-location">JECRC Foundation</span>
+                            <span class="status status--success">Active</span>
+                        </div>
+                        <div class="user-guide">Guide: GUIDE002 (Aayushi Giri)</div>
+                    </div>
+                    <div class="tracked-user">
+                        <div class="user-info-panel">
+                            <span class="user-id">SAFAR003 - Mohit Sharma</span>
+                            <span class="user-location">JECRC Foundation</span>
+                            <span class="status status--warning">Inactive</span>
+                        </div>
+                        <div class="user-guide">No Guide Assigned</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Alert & Messaging System -->
+            <div class="dashboard-card alert-system">
+                <h3>📢 Alert & Messaging System</h3>
+                <div class="message-center">
+                    <div class="message-compose">
+                        <h4>Send Alert/Message</h4>
+                        <div class="form-group">
+                            <label class="form-label">Target</label>
+                            <select class="form-control" id="messageTarget">
+                                <option>All SafarIDs in Zone</option>
+                                <option>All GuideIDs in Zone</option>
+                                <option>Specific SafarID</option>
+                                <option>Specific GuideID</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Message Template</label>
+                            <select class="form-control" id="messageTemplate">
+                                <option>Weather Alert: Heavy rain expected</option>
+                                <option>Security Alert: Avoid crowded areas</option>
+                                <option>Tourism Update: New attraction opened</option>
+                                <option>Emergency: Respond immediately</option>
+                                <option>Custom Message</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" placeholder="Custom message..." rows="3" id="customMessage"></textarea>
+                        </div>
+                        <button class="btn btn--primary" id="sendAlert">Send Alert</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Link Management -->
+            <div class="dashboard-card link-management">
+                <h3>🔗 SafarID-GuideID Link Management</h3>
+                <div class="links-overview">
+                    <div class="active-links">
+                        <h4>Active Connections</h4>
+                        <div class="link-item">
+                            <span class="link-safari">SAFAR001 (Vaibhav Shakya)</span>
+                            <span class="link-connector">↔</span>
+                            <span class="link-guide">GUIDE001 (Naveen)</span>
+                            <span class="status status--success">Connected</span>
+                        </div>
+                        <div class="link-item">
+                            <span class="link-safari">SAFAR002 (Himanshu Gaur)</span>
+                            <span class="link-connector">↔</span>
+                            <span class="link-guide">GUIDE002 (Aayushi Giri)</span>
+                            <span class="status status--success">Connected</span>
+                        </div>
+                        <div class="link-item">
+                            <span class="link-safari">SAFAR003 (Mohit Sharma)</span>
+                            <span class="link-connector">-</span>
+                            <span class="link-guide">No Assignment</span>
+                            <button class="btn btn--sm btn--primary">Assign Guide</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Comprehensive Information Center -->
+            <div class="dashboard-card info-center">
+                <h3>📋 Information Center</h3>
+                <div class="info-tabs">
+                    <button class="tab-btn active" data-tab="safar-info">SafarID Profiles</button>
+                    <button class="tab-btn" data-tab="guide-info">GuideID Profiles</button>
+                </div>
+                <div class="tab-content">
+                    <div id="safar-info" class="tab-panel active">
+                        <div class="profile-card">
+                            <h4>SAFAR001 - John Smith</h4>
+                            <p><strong>Status:</strong> Active Tourist</p>
+                            <p><strong>Location:</strong> Red Fort Area</p>
+                            <p><strong>Emergency Contact:</strong> +1-555-0123</p>
+                            <p><strong>Document Status:</strong> ✓ Verified</p>
+                        </div>
+                    </div>
+                    <div id="guide-info" class="tab-panel">
+                        <div class="profile-card">
+                            <h4>GUIDE001 - Raj Kumar</h4>
+                            <p><strong>Rating:</strong> ⭐ 4.8/5.0</p>
+                            <p><strong>Services:</strong> Hotel, Transport, Local Guide</p>
+                            <p><strong>Certification:</strong> ✓ Government Verified</p>
+                            <p><strong>Active Tours:</strong> 3</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SAFARCONNECT Dashboard -->
+    <div id="safarconnectDashboard" class="page">
+        <div class="dashboard-header">
+            <h1>🔗 SAFARCONNECT Dashboard</h1>
+            <div class="user-info">
+                <span>Officer: <strong>Tushar</strong></span>
+                <button class="btn btn--secondary logout-btn">Logout</button>
+            </div>
+        </div>
+
+        <div class="dashboard-grid">
+            <!-- SAFAR ID Generation -->
+            <div class="dashboard-card id-generation">
+                <h3>🆔 SAFAR ID Generation</h3>
+                <div class="registration-form">
+                    <form id="safarIdForm">
+                        <div class="form-group">
+                            <label class="form-label">Tourist Name *</label>
+                            <input type="text" class="form-control" id="touristName" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">ID Proof Type *</label>
+                            <select class="form-control" id="idProofType" required>
+                                <option value="">Select ID Proof Type</option>
+                                <option value="aadhaar">Aadhaar Card</option>
+                                <option value="passport">Passport</option>
+                                <option value="driving">Driving License</option>
+                                <option value="voter">Voter ID</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">ID Proof Number *</label>
+                            <input type="text" class="form-control" id="idProofNumber" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Contact Number</label>
+                            <input type="tel" class="form-control" id="contactNumber">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Email Address</label>
+                            <input type="email" class="form-control" id="emailAddress">
+                        </div>
+                        <button type="submit" class="btn btn--primary btn--full-width">Generate SAFAR ID</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- QR Code Generation -->
+            <div class="dashboard-card qr-generation">
+                <h3>📱 QR Code Generation</h3>
+                <div class="qr-section">
+                    <div id="qrGenerator" class="qr-generator">
+                        <div class="form-group">
+                            <label class="form-label">Select SAFAR ID for QR Generation</label>
+                            <select class="form-control" id="safarIdSelect">
+                                <option value="">Select SAFAR ID</option>
+                                <option value="SAFAR001">SAFAR001 - Vaibhav Shakya</option>
+                                <option value="SAFAR002">SAFAR002 - Himanshu Gaur</option>
+                                <option value="SAFAR003">SAFAR003 - Mohit Sharma</option>
+                            </select>
+                        </div>
+                        <button class="btn btn--primary" id="generateQr">Generate QR Code</button>
+                    </div>
+                    <div id="qrDisplay" class="qr-display hidden">
+                        <div class="qr-code-placeholder">
+                            <div class="qr-visual">
+                                <div class="qr-pattern">
+                                    <div class="qr-squares"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="qr-info">
+                            <p><strong>SAFAR ID:</strong> <span id="qrSafarId">-</span></p>
+                            <p><strong>Generated:</strong> <span id="qrGenerated">-</span></p>
+                            <p><strong>Valid Until:</strong> <span id="qrExpires">-</span></p>
+                            <p><strong>Status:</strong> <span class="status status--success">Active</span></p>
+                        </div>
+                        <div class="qr-actions">
+                            <button class="btn btn--secondary">Download QR</button>
+                            <button class="btn btn--outline">Print QR</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Registration Management -->
+            <div class="dashboard-card registration-mgmt">
+                <h3>👥 Registration Management</h3>
+                <div class="registration-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">2,456</span>
+                        <span class="stat-label">Total Registered</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">89</span>
+                        <span class="stat-label">This Week</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">15</span>
+                        <span class="stat-label">Pending Verification</span>
+                    </div>
+                </div>
+                <div class="recent-registrations">
+                    <h4>Recent Registrations</h4>
+                    <div class="registration-list">
+                        <div class="reg-item">
+                            <span class="reg-id">SAFAR001 - Vaibhav Shakya</span>
+                            <span class="status status--success">Verified</span>
+                        </div>
+                        <div class="reg-item">
+                            <span class="reg-id">SAFAR002 - Himanshu Gaur</span>
+                            <span class="status status--success">Verified</span>
+                        </div>
+                        <div class="reg-item">
+                            <span class="reg-id">SAFAR003 - Mohit Sharma</span>
+                            <span class="status status--warning">Pending</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- System Integration -->
+            <div class="dashboard-card system-integration">
+                <h3>🔧 System Integration</h3>
+                <div class="integration-status">
+                    <div class="integration-item">
+                        <span>SAFARGUARD Integration</span>
+                        <span class="status status--success">🟢 Active</span>
+                    </div>
+                    <div class="integration-item">
+                        <span>SAFARGUIDE Integration</span>
+                        <span class="status status--success">🟢 Active</span>
+                    </div>
+                    <div class="integration-item">
+                        <span>SAFARCENTRAL Integration</span>
+                        <span class="status status--success">🟢 Active</span>
+                    </div>
+                    <div class="integration-item">
+                        <span>Blockchain Network</span>
+                        <span class="status status--success">🔗 Connected</span>
+                    </div>
+                </div>
+                <div class="sync-info">
+                    <p><strong>Last Sync:</strong> Just now</p>
+                    <p><strong>Data Status:</strong> All systems synchronized</p>
+                    <button class="btn btn--outline">Force Sync</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
